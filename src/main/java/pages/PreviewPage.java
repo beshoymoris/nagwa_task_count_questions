@@ -12,6 +12,6 @@ public class PreviewPage extends BasePage {
         super(driver);
     }
     public void clickPreviewQuesWorksheet () {
-        findElement(previewQuestionBtn).click();
+        moveToElementAndClick(previewQuestionBtn);
     }
 }

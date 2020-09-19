@@ -6,20 +6,22 @@ import org.junit.Test;
 import pages.*;
 
 
-public class OpeningTest extends BaseTest{
+public class CountingQuestionsTest extends BaseTest{
 
     private HomePage homePage;
     private OpeningPage openingPage;
     private SearchResultPage searchResultPage;
     private PreviewPage previewPage;
     private CountingQuestionsPage countingQuestionsPage;
-    String searchData = ConfigFileReader.getProperty("searchdata");
+    String searchData = ConfigFileReader.getProperty("searchData");
     String homePageLanguage =ConfigFileReader.getProperty("language");
 
     @Test
-    public void  testCountingQuestionsinWorksheet() throws InterruptedException {
+    public void  testCountingQuestionsinWorksheet()  {
+
 
         openingPage = new OpeningPage(driver);
+        openingPage.getCurrentUrl();
         openingPage.clickOnSelectLanguage();
         homePage = new HomePage(driver);
         String reflectedLanguage = homePage.getLanguage();

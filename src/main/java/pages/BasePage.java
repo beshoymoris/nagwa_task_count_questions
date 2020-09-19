@@ -1,6 +1,7 @@
 package pages;
 
 import org.openqa.selenium.*;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.FluentWait;
 import org.openqa.selenium.support.ui.Wait;
@@ -45,5 +46,16 @@ public class BasePage {
                 .pollingEvery(POLLING_TIMEOUT)
                 .ignoring(NoSuchElementException.class);
         return wait.until(d -> d.findElements(locator));
+    }
+
+    protected WebElement findElementClickable(By locator, long timeout) {
+        WebDriverWait wait = new WebDriverWait(driver, timeout);
+        return wait.until(ExpectedConditions.elementToBeClickable(locator));
+    }
+
+    protected void moveToElementAndClick(By locator) {
+        WebElement element = findElement(locator);
+        Actions actions = new Actions(driver);
+        actions.moveToElement(element).click();
     }
 }

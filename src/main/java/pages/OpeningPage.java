@@ -11,6 +11,12 @@ public class OpeningPage extends BasePage{
         super(driver);
     }
 
+
+    public String getCurrentUrl ()  {
+        String currentUrl = driver.getCurrentUrl();
+        return currentUrl;
+    }
+
     public HomePage clickOnSelectLanguage ()  {
         findElement(languageBtn).click();
         return new HomePage(driver);
